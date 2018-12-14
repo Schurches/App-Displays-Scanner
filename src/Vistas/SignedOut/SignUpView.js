@@ -22,21 +22,21 @@ export default class SignUpView extends Component {
         <Content style ={styles.contentStyle}>
 
         <View style={styles.containerCentered}>
-          <Text style={{fontSize: 15,fontWeight: 'bold',color: '#c6c6c6', textAlign:'center'}}>Registro</Text>
+          <Text style={styles.titleText}>Registro</Text>
         </View>
 
         <Form>
           <Item style ={styles.inputLayout}>
-            <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  placeholder="Usuario" value={this.state.user} onChangeText={(user) => {this.setState({user: user})}}/>
+            <Input style={styles.inputText}  placeholder="Usuario" value={this.state.user} onChangeText={(user) => {this.setState({user: user})}}/>
           </Item>
           <Item style ={styles.inputLayout}>
-            <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  placeholder="Correo Electronico" value={this.state.email} onChangeText={(email) => {this.setState({email: email})}}/>
+            <Input style={styles.inputText}  placeholder="Correo Electronico" value={this.state.email} onChangeText={(email) => {this.setState({email: email})}}/>
           </Item>
           <Item style ={styles.inputLayout}>
-            <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  placeholder="Contraseña" secureTextEntry={true} value={this.state.password1} onChangeText={(password1) => {this.setState({password1: password1})}}/>
+            <Input style={styles.inputText}  placeholder="Contraseña" secureTextEntry={true} value={this.state.password1} onChangeText={(password1) => {this.setState({password1: password1})}}/>
           </Item>
           <Item style ={styles.inputLayout}>
-            <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  placeholder="Confirmar Contraseña" secureTextEntry={true} value={this.state.password2} onChangeText={(password2) => {this.setState({password2: password2})}}/>
+            <Input style={styles.inputText}  placeholder="Confirmar Contraseña" secureTextEntry={true} value={this.state.password2} onChangeText={(password2) => {this.setState({password2: password2})}}/>
           </Item>
         </Form>
 
@@ -46,7 +46,7 @@ export default class SignUpView extends Component {
 
           <Card  transparent>
             <CardItem style={styles.colorBG} header>
-              <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: '#c6c6c6'}}>¿Ya tienes una cuenta?</Text>
+              <Text uppercase={false} style={styles.inputText}>¿Ya tienes una cuenta?</Text>
               <Button onPress={this.onPressBack}  transparent>
                 <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: '#85c990'}}>Inicia</Text>
               </Button>
@@ -69,6 +69,19 @@ const styles = StyleSheet.create({
     marginTop: 15,
     padding: 5,
     backgroundColor: "#85c990"
+  },
+
+  inputText:{
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: '#c6c6c6',
+  },
+
+  titleText:{
+    fontSize: 13,
+    fontWeight: 'bold',
+    textAlign:'center',
+    color: '#c6c6c6'
   },
 
   contentStyle:{

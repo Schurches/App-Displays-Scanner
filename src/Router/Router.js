@@ -6,13 +6,23 @@ import {
 } from 'react-navigation';
 
 import AuthLoadingView from '../Vistas/Auth/AuthLoadingView';
+
 import SignInView from '../Vistas/SignedOut/SignInView';
 import SignUpView from '../Vistas/SignedOut/SignUpView';
 
+import ReportsView from '../Vistas/SignedIn/ReportsView';
+import CameraView from '../Vistas/SignedIn/CameraView';
+
 export const SignedIn = createStackNavigator({
   //Aqui pondria el home
-  SignInView:{
-    screen:SignInView,
+  ReportsView:{
+    screen:ReportsView,
+    navigationOptions:{
+      header:null,
+    },
+  },
+  CameraView:{
+    screen:CameraView,
     navigationOptions:{
       header:null,
     },

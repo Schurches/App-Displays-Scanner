@@ -3,11 +3,9 @@ import { StyleSheet } from 'react-native';
 import { Root,Spinner,Text, View, Container, Content, Header, Left, Body, Button, Title, Icon, Right  } from "native-base";
 import { Font, AppLoading } from "expo";
 import {AppContainer} from './src/Router/Router';
-import Vista from './vista'
-import AuthLoadingView from './src/Vistas/Auth/AuthLoadingView'
-import SignInView from './src/Vistas/SignedOut/SignInView'
-import SignUpView from './src/Vistas/SignedOut/SignUpView'
 
+
+console.disableYellowBox = true;
 
 export default class App extends React.Component {
   constructor(props){

@@ -21,15 +21,15 @@ export default class SignInView extends Component {
 
 
           <View style={styles.containerCentered}>
-              <Text style={{fontSize: 15,fontWeight: 'bold',color: '#c6c6c6', textAlign:'center'}}>Iniciar Sesion</Text>
+              <Text style={styles.titleText}>Iniciar Sesion</Text>
           </View>
 
           <Form>
             <Item style ={styles.inputLayout}>
-              <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  placeholder="Correo Electronico" onChangeText={ (email) => {this.setState({email: email})} }/>
+              <Input style={styles.inputText}  placeholder="Correo Electronico" onChangeText={ (email) => {this.setState({email: email})} }/>
             </Item>
             <Item style ={styles.inputLayout}>
-              <Input style={{fontSize: 13, fontWeight: 'bold', color: '#c6c6c6'}}  secureTextEntry={true} placeholder="Contraseña"  onChangeText={ (passw) => {this.setState({password: passw})} } />
+              <Input style={styles.inputText}  secureTextEntry={true} placeholder="Contraseña"  onChangeText={ (passw) => {this.setState({password: passw})} } />
             </Item>
           </Form>
 
@@ -39,7 +39,7 @@ export default class SignInView extends Component {
 
           <Card  transparent>
             <CardItem style={styles.colorBG} header>
-              <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: '#c6c6c6'}}>¿No tienes cuenta?</Text>
+              <Text uppercase={false} style={styles.inputText}>¿No tienes cuenta?</Text>
                 <Button onPress={this.onPressJoinButton}  transparent>
                   <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: '#85c990'}}>Registrate</Text>
                 </Button>
@@ -63,6 +63,19 @@ const styles = StyleSheet.create({
     marginTop: 15,
     padding: 5,
     backgroundColor: "#85c990"
+  },
+
+  inputText:{
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: '#c6c6c6',
+  },
+
+  titleText:{
+    fontSize: 13,
+    fontWeight: 'bold',
+    textAlign:'center',
+    color: '#c6c6c6'
   },
 
   containerCentered: {
