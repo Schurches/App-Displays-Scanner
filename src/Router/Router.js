@@ -9,12 +9,18 @@ import AuthLoadingView from '../Vistas/Auth/AuthLoadingView';
 
 import SignInView from '../Vistas/SignedOut/SignInView';
 import SignUpView from '../Vistas/SignedOut/SignUpView';
-
+import HomeView from '../Vistas/SignedIn/HomeView';
 import ReportsView from '../Vistas/SignedIn/ReportsView';
 import CameraView from '../Vistas/SignedIn/CameraView';
 
 export const SignedIn = createStackNavigator({
   //Aqui pondria el home
+  HomeView:{
+  	screen:HomeView,
+  	navigationOptions:{
+  		header:null,
+  	},
+  },
   ReportsView:{
     screen:ReportsView,
     navigationOptions:{
