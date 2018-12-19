@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet,Image,View } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+
+import {colorType as ColorType} from '../../Resources/Color';
+
 export default class ReportsInfoTab extends Component {
   render() {
     return (
@@ -17,8 +20,8 @@ export default class ReportsInfoTab extends Component {
           </View>
 
           <View style={styles.containerRight}>
-              <Button  onPress={this.onLoginPress} style ={styles.buttonLayout}>
-                <Icon name='download' type='FontAwesome'  style={{fontSize:17, color: '#121212'}} />
+              <Button  style ={styles.buttonLayout}>
+                <Icon name='download' type='FontAwesome'  style={{fontSize:17, color: ColorType.BACKGROUND_PRIMARY}} />
               </Button>
           </View>
 
@@ -63,13 +66,13 @@ export default class ReportsInfoTab extends Component {
 const styles = StyleSheet.create({
 
   colorBackground:{
-    backgroundColor: "#121212",
+    backgroundColor: ColorType.BACKGROUND_PRIMARY,
   },
 
   buttonLayout:{
     margin:0,
     padding:0,
-    backgroundColor: "#85c990"
+    backgroundColor: ColorType.BUTTON_COLOR_PRIMARY,
   },
 
   containerCentered: {
@@ -87,11 +90,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  headerStyle: {
-    backgroundColor: "#121212",
-    elevation: 0,
-    borderBottomWidth: 0,
-  },
 
   rowViewStyle:{
     flex:1,
@@ -100,38 +98,38 @@ const styles = StyleSheet.create({
 
   smallText:{
     fontSize: 10,
-    color: '#818181',
+    color: ColorType.SUBTITLE_COLOR,
   },
 
   fillText:{
     fontSize: 18,
-    color: '#c6c6c6',
+    color: ColorType.TITLE_COLOR,
   },
 
 
   normalText:{
     fontSize: 13,
     fontWeight: 'bold',
-    color: '#c6c6c6',
+    color: ColorType.TITLE_COLOR,
   },
 
   midText:{
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#c6c6c6',
+    color: ColorType.TITLE_COLOR,
   },
 
   bigText:{
     fontSize: 35,
     fontWeight: 'bold',
-    color: '#c6c6c6',
+    color: ColorType.TITLE_COLOR,
   },
 
   titleText:{
     fontSize: 13,
     fontWeight: 'bold',
     textAlign:'center',
-    color: '#c6c6c6'
+    color: ColorType.TITLE_COLOR,
   },
 
 });

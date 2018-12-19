@@ -5,16 +5,7 @@ import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text,
 import {Row, Col, Grid} from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
 /*Color resources*/
-import {BACKGROUND_PRIMARY,
-  BACKGROUND_SECONDARY,
-  ICON_COLOR,
-  ICON_COLOR_SUCCESS,
-  ICON_COLOR_DANGER,
-  TITLE_COLOR,
-  SUBTITLE_COLOR,
-  PAGINATION_DOT_COLOR,
-  PAGINATION_DOT_ACTIVE_COLOR,
-  DISPLAY_OUTLINE} from '../../Resources/Color';
+import {colorType as ColorType} from '../../Resources/Color';
 
 const displays = [
   {
@@ -97,21 +88,21 @@ export default class HomeView extends Component {
     if(currentDisplay.text == this.state.currentDisplayOnEdit){
       return(
         <View style={{margin:10, flexDirection:'row', alignItems:'center'}}>
-          <Input placeholder='Display title' value={this.state.displayText} onChangeText={ (text) => {this.setState({displayText: text})} } style={{fontSize: 20, fontWeight: 'bold', color:TITLE_COLOR}} />
+          <Input placeholder='Display title' value={this.state.displayText} onChangeText={ (text) => {this.setState({displayText: text})} } style={{fontSize: 20, fontWeight: 'bold', color:ColorType.TITLE_COLOR}} />
           <TouchableOpacity onPress={this.onEditSave} style={{marginTop:10, marginBottom:10, marginLeft:10, marginRight:5}}>
-            <Icon name='save' type='MaterialIcons' style={{color:ICON_COLOR_SUCCESS}}/>
+            <Icon name='save' type='MaterialIcons' style={{color:ColorType.ICON_COLOR_SUCCESS}}/>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.onEditCancel} style={{marginTop:10, marginBottom:10, marginLeft:5, marginRight:10}}>
-            <Icon name='trash' style={{color:ICON_COLOR_DANGER}}/>
+            <Icon name='trash' style={{color:ColorType.ICON_COLOR_DANGER}}/>
           </TouchableOpacity>
         </View>
       );
     }else{
       return(
         <View style={{margin:10, flexDirection:'row', justifyContent:'space-between'}}>
-          <Text style={{fontSize: 20, fontWeight: 'bold', color: TITLE_COLOR, textAlign:'center'}}>{currentDisplay.text}</Text>
+          <Text style={{fontSize: 20, fontWeight: 'bold', color: ColorType.TITLE_COLOR, textAlign:'center'}}>{currentDisplay.text}</Text>
           <TouchableOpacity onPress={this.onDisplayEdit}>
-            <Icon name='edit' type='Feather' style={{color:ICON_COLOR}}/>
+            <Icon name='edit' type='Feather' style={{color:ColorType.ICON_COLOR}}/>
           </TouchableOpacity>
         </View>
       );
@@ -123,9 +114,8 @@ export default class HomeView extends Component {
       displays.map(display => (
 
           <View style={styles.displayContainer}>
-
             <View style={{marginBottom: 10, flexDirection:'row'}}>
-              <View style={{backgroundColor:BACKGROUND_SECONDARY,flex:1, borderTopRightRadius:15, borderTopLeftRadius:15}}>
+              <View style={{backgroundColor:ColorType.BACKGROUND_SECONDARY,flex:1, borderTopRightRadius:15, borderTopLeftRadius:15}}>
                 {this.isDisplayBeingEdited(display)}
               </View>
             </View>
@@ -168,15 +158,16 @@ export default class HomeView extends Component {
 
   render() {
     return (
-      <Container style={{backgroundColor:BACKGROUND_PRIMARY}}>
+      <Container style={{backgroundColor:ColorType.BACKGROUND_PRIMARY}}>
 
       <View style={{flex:3}}>
         <Swiper
         scrollEnabled={this.state.isScrollEnabled}
         loop={false}
-        dotColor={ICON_COLOR}
-        activeDotColor="#FFFFFF"
-        onIndexChanged={this.onIndexChangeUpdate.bind(this)}>
+        dotColor={ColorType.ICON_COLOR}
+        activeDotColor={ColorType.PAGINATION_DOT_ACTIVE_COLOR}
+        onIndexChanged={this.onIndexChangeUpdate.bind(this)}
+        containerStyle={{flex:3}}>
           {this.renderDisplayInfo()}
         </Swiper>
 
@@ -216,37 +207,37 @@ const styles = StyleSheet.create({
 
   displayConfigIcons:{
     fontSize:48,
-    color:ICON_COLOR,
+    color:ColorType.ICON_COLOR,
   },
 
   displayConfigText:{
      fontWeight: 'bold',
-     color: TITLE_COLOR,
+     color: ColorType.TITLE_COLOR,
      textAlign:'center',
   },
 
   displayOptionIcons:{
     fontSize:48,
-    color:ICON_COLOR,
+    color:ColorType.ICON_COLOR,
   },
 
   displayOptionIcons2:{
     fontSize:96,
-    color:ICON_COLOR,
+    color:ColorType.ICON_COLOR,
   },
 
   displayOptionText:{
      fontWeight: 'bold',
-     color: TITLE_COLOR,
+     color: ColorType.TITLE_COLOR,
       textAlign:'center'
   },
 
   displayEditIcon:{
-    color:ICON_COLOR_SUCCESS
+    color:ColorType.ICON_COLOR_SUCCESS
   },
 
   displayCancelIcon:{
-    color:ICON_COLOR_DANGER
+    color:ColorType.ICON_COLOR_DANGER
   },
 
   displayConfigOptionsViewLayout:{
@@ -256,12 +247,12 @@ const styles = StyleSheet.create({
 
   displayContainer:{
     flex:1,
-    backgroundColor:BACKGROUND_SECONDARY,
+    backgroundColor:ColorType.BACKGROUND_SECONDARY,
     marginTop: 50,
     marginHorizontal:15,
     borderRadius:15,
     borderWidth:.5,
-    borderColor:DISPLAY_OUTLINE,
+    borderColor:ColorType.DISPLAY_OUTLINE,
     flexWrap:'wrap',
     alignItems:'center'
 

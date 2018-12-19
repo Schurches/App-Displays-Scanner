@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet,StatusBar,Image,View } from 'react-native';
 import { Container,Card,Label,Header,Form,Content,Button,Text,CardItem,Item,Body,Title,Input,Icon,Right } from 'native-base';
 
+import {colorType as ColorType} from '../../Resources/Color';
+
 export default class SignInView extends Component {
   state = {email: '', password: '', error: '', authRequest: false}
 
@@ -16,32 +18,33 @@ export default class SignInView extends Component {
   render() {
     return (
       <Container style={styles.colorBG}>
-        <StatusBar backgroundColor={"#202020"} barStyle="light-content"/>
+        <StatusBar backgroundColor={ColorType.BACKGROUND_SECONDARY} barStyle="light-content"/>
         <Content style ={styles.contentStyle}>
 
+          <View style={{backgroundColor:ColorType.BACKGROUND_SECONDARY,paddingTop:15,paddingBottom:20, margin:10, marginTop:0, borderRadius:10,}}>
+            <View style={styles.containerCentered}>
+                <Text style={styles.titleText}>Iniciar Sesion</Text>
+            </View>
 
-          <View style={styles.containerCentered}>
-              <Text style={styles.titleText}>Iniciar Sesion</Text>
+            <Form>
+              <Item style ={styles.inputLayout}>
+                <Input style={styles.inputText}  placeholder="Correo Electronico" onChangeText={ (email) => {this.setState({email: email})} }/>
+              </Item>
+              <Item style ={styles.inputLayout}>
+                <Input style={styles.inputText}  secureTextEntry={true} placeholder="Contraseña"  onChangeText={ (passw) => {this.setState({password: passw})} } />
+              </Item>
+            </Form>
           </View>
 
-          <Form>
-            <Item style ={styles.inputLayout}>
-              <Input style={styles.inputText}  placeholder="Correo Electronico" onChangeText={ (email) => {this.setState({email: email})} }/>
-            </Item>
-            <Item style ={styles.inputLayout}>
-              <Input style={styles.inputText}  secureTextEntry={true} placeholder="Contraseña"  onChangeText={ (passw) => {this.setState({password: passw})} } />
-            </Item>
-          </Form>
-
           <Button  onPress={this.onLoginPress} style ={styles.buttonLayout} block>
-            <Text uppercase={false} style={{fontSize: 15,fontWeight: 'bold',color: '#ffffff'}}> Iniciar </Text>
+            <Text uppercase={false} style={{fontSize: 18,fontWeight: 'bold',color: ColorType.TEXT_BUTTON_COLOR_PRIMARY}}> Iniciar </Text>
           </Button>
 
           <Card  transparent>
             <CardItem style={styles.colorBG} header>
               <Text uppercase={false} style={styles.inputText}>¿No tienes cuenta?</Text>
                 <Button onPress={this.onPressJoinButton}  transparent>
-                  <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: '#85c990'}}>Registrate</Text>
+                  <Text uppercase={false} style={{fontSize: 13,fontWeight: 'bold',color: ColorType.BUTTON_COLOR_PRIMARY}}>Registrate</Text>
                 </Button>
             </CardItem>
             <CardItem style={styles.colorBG} header bordered>
@@ -62,31 +65,30 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 15,
     padding: 5,
-    backgroundColor: "#85c990"
+    backgroundColor: ColorType.BUTTON_COLOR_PRIMARY,
   },
 
   inputText:{
-    fontSize: 13,
-    fontWeight: 'bold',
-    color: '#c6c6c6',
+    fontSize: 15,
+    color:  ColorType.TITLE_COLOR,
   },
 
   titleText:{
-    fontSize: 13,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign:'center',
-    color: '#c6c6c6'
+    color:  ColorType.TITLE_COLOR,
   },
 
   containerCentered: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      marginBottom: 20,
+      marginBottom: 10,
   },
 
   colorBG:{
-    backgroundColor: "#121212"
+    backgroundColor:ColorType.BACKGROUND_PRIMARY
   },
 
   cardMainLayout:{
@@ -95,12 +97,12 @@ const styles = StyleSheet.create({
 
   contentStyle:{
      padding: 25,
-     marginTop:50,
+     marginTop:20,
   },
 
   errorMessage:{
-    color: '#F44336',
-    fontSize: 13,
+    color: ColorType.ERROR_BUTTON_COLOR,
+    fontSize: 15,
   },
 
   inputLayout:{

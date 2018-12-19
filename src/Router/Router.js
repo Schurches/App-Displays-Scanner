@@ -14,7 +14,6 @@ import ReportsView from '../Vistas/SignedIn/ReportsView';
 import CameraView from '../Vistas/SignedIn/CameraView';
 
 export const SignedIn = createStackNavigator({
-  //Aqui pondria el home
   HomeView:{
   	screen:HomeView,
   	navigationOptions:{
@@ -33,7 +32,6 @@ export const SignedIn = createStackNavigator({
       header:null,
     },
   },
-  //Si tan solo tuviera Uno :(
 },
 
 {
